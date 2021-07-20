@@ -1,0 +1,113 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 13.3 (Ubuntu 13.3-1.pgdg20.04+1)
+-- Dumped by pg_dump version 13.3 (Ubuntu 13.3-1.pgdg20.04+1)
+
+-- Started on 2021-07-20 14:45:57 -03
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- TOC entry 200 (class 1259 OID 16386)
+-- Name: persona; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.persona (
+    id_persona integer NOT NULL,
+    nombre character varying,
+    apellido character varying,
+    email character varying
+);
+
+
+ALTER TABLE public.persona OWNER TO postgres;
+
+--
+-- TOC entry 201 (class 1259 OID 16389)
+-- Name: persona_id_persona_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.persona_id_persona_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.persona_id_persona_seq OWNER TO postgres;
+
+--
+-- TOC entry 3005 (class 0 OID 0)
+-- Dependencies: 201
+-- Name: persona_id_persona_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.persona_id_persona_seq OWNED BY public.persona.id_persona;
+
+
+--
+-- TOC entry 2865 (class 2604 OID 16391)
+-- Name: persona id_persona; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.persona ALTER COLUMN id_persona SET DEFAULT nextval('public.persona_id_persona_seq'::regclass);
+
+
+--
+-- TOC entry 2998 (class 0 OID 16386)
+-- Dependencies: 200
+-- Data for Name: persona; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public.persona (id_persona, nombre, apellido, email) VALUES (2, 'Carla', 'Gomez', 'cgomez@email.com');
+INSERT INTO public.persona (id_persona, nombre, apellido, email) VALUES (3, 'Susana', 'Lara', 'slara@email.com');
+INSERT INTO public.persona (id_persona, nombre, apellido, email) VALUES (4, 'Pedro', 'Najera', 'pnajera@mail.com');
+INSERT INTO public.persona (id_persona, nombre, apellido, email) VALUES (5, 'Pedro', 'Najera', 'pnajera@mail.com');
+INSERT INTO public.persona (id_persona, nombre, apellido, email) VALUES (6, 'Pedro', 'Najera', 'pnajera@mail.com');
+INSERT INTO public.persona (id_persona, nombre, apellido, email) VALUES (7, 'Pedro', 'Najera', 'pnajera@mail.com');
+INSERT INTO public.persona (id_persona, nombre, apellido, email) VALUES (8, 'Pedro', 'Najera', 'pnajera@mail.com');
+INSERT INTO public.persona (id_persona, nombre, apellido, email) VALUES (1, 'Juan Carlos', 'Juarez', 'cjjuarez@mail.com');
+INSERT INTO public.persona (id_persona, nombre, apellido, email) VALUES (10, 'Alejandra', 'Najera', 'anajera@mail.com');
+
+
+--
+-- TOC entry 3006 (class 0 OID 0)
+-- Dependencies: 201
+-- Name: persona_id_persona_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.persona_id_persona_seq', 10, true);
+
+
+--
+-- TOC entry 2867 (class 2606 OID 16399)
+-- Name: persona persona_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.persona
+    ADD CONSTRAINT persona_pkey PRIMARY KEY (id_persona);
+
+
+-- Completed on 2021-07-20 14:45:57 -03
+
+--
+-- PostgreSQL database dump complete
+--
+
